@@ -1,0 +1,9 @@
+$schema: "1.0"
+name: "backEndEngineer"
+description: "Customize the backend workload for the devbox"
+tasks:
+  - name: winget
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/Evilazaro/eShop/refs/heads/main/devEx/customizations/workloads/backEndEngineer/backEndEngineer.dsc.yaml'
+      configurationFile: 'c:\WinGetConfig\backEndEngineer.dsc.yaml'
+      runAsUser: true

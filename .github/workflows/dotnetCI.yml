@@ -14,22 +14,31 @@ jobs:
 
     runs-on: ubuntu-latest # Specifies the runner environment
 
-    steps:
-    - name: Update Action Packages
+    steps:    
+    - name: Update Packages
       run: |
+          sudo apt-get update 
+
+    - name: Install .NET SDK 9.0
+      run: |
+        sudo sudo add-apt-repository ppa:dotnet/backports && \
         sudo apt-get update && \
-        sudo apt-get upgrade -y # Updates the action packages
-        
+        sudo apt-get install -y dotnet-sdk-9.0
+
+    - name: Update Workloads
+      run: | 
+        sudo dotnet workload update && \
+        sudo dotnet workload install wasm-tools  && \
+        sudo dotnet workload install aspire  
+
     - uses: actions/checkout@v4 # Checks out the repository
     - name: Setup .NET
       uses: actions/setup-dotnet@v4 # Sets up the specified .NET version
       with:
-        dotnet-version: 9.0.x # Specifies the .NET version to use
-    
+        dotnet-version: 9.0.x # Specifies the .NET version to use    
+      
     - name: Restore dependencies
-      working-directory: ./src # Specifies the working directory
-      run: dotnet restore # Restores the dependencies
+      run: dotnet restore eShop.Web.slnf # Restores the dependencies
     
     - name: Build
-      working-directory: ./src # Specifies the working directory
-      run: dotnet build --no-restore # Builds the project without restoring dependencies
+      run: dotnet build eShop.Web.slnf --no-restore # Builds the project without restoring dependencies

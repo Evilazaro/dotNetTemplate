@@ -1,0 +1,9 @@
+$schema: "1.0"
+name: "frontEndEngineer"
+description: "Customize the Front End Engineer workload for the devbox"
+tasks:
+  - name: winget
+    parameters:
+      downloadUrl: 'https://raw.githubusercontent.com/Evilazaro/eShop/refs/heads/main/.configurations/vscode.dsc.yaml'
+      configurationFile: 'c:\WinGetConfig\vscode.dsc.yaml'
+      runAsUser: true
