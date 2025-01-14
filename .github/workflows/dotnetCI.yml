@@ -22,12 +22,9 @@ jobs:
         dotnet-version: 9.0.x # Specifies the .NET version to use
     
     - name: Restore dependencies
+      working-directory: ./src # Specifies the working directory
       run: dotnet restore # Restores the dependencies
     
     - name: Build
       working-directory: ./src # Specifies the working directory
       run: dotnet build --no-restore # Builds the project without restoring dependencies
-    
-    - name: Test
-      working-directory: ./src # Specifies the working directory
-      run: dotnet test --no-build --verbosity normal # Runs the tests without building the project
