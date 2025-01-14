@@ -21,6 +21,10 @@ jobs:
       with:
         dotnet-version: 9.0.x # Specifies the .NET version to use
     
+    - name: Update DotnetWorkloads
+      run: |
+        sudo dotnet workload update
+    
     - name: Restore dependencies
       run: dotnet restore # Restores the dependencies
     
