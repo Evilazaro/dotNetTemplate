@@ -5,24 +5,24 @@ name: .NET Continuous Integration
 
 on:
   push:
-    branches: [ "main", "feature/*", "refactor/*", "bugfix/*"]
+    branches: [ "main", "feature/**/*", "refactor/**/*", "bugfix/**/*", "fix/**/*"] # Triggers on push to specified branches
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main" ] # Triggers on pull requests to the main branch
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Specifies the runner environment
 
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4 # Checks out the repository
     - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+      uses: actions/setup-dotnet@v4 # Sets up the specified .NET version
       with:
-        dotnet-version: 9.0.x
+        dotnet-version: 9.0.x # Specifies the .NET version to use
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore # Restores the dependencies
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --no-restore # Builds the project without restoring dependencies
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal # Runs the tests without building the project
