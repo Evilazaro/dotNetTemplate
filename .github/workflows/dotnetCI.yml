@@ -14,12 +14,7 @@ jobs:
 
     runs-on: ubuntu-latest # Specifies the runner environment
 
-    steps:
-    - name: Update Action Packages
-      run: |
-        sudo apt-get update && \
-        sudo apt-get upgrade -y # Updates the action packages
-        
+    steps:        
     - uses: actions/checkout@v4 # Checks out the repository
     - name: Setup .NET
       uses: actions/setup-dotnet@v4 # Sets up the specified .NET version
@@ -27,9 +22,7 @@ jobs:
         dotnet-version: 9.0.x # Specifies the .NET version to use
     
     - name: Restore dependencies
-      working-directory: ./src # Specifies the working directory
       run: dotnet restore # Restores the dependencies
     
     - name: Build
-      working-directory: ./src # Specifies the working directory
       run: dotnet build --no-restore # Builds the project without restoring dependencies
