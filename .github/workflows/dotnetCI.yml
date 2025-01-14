@@ -17,8 +17,7 @@ jobs:
     steps:    
     - name: Update Packages
       run: |
-          sudo apt-get update && \
-          sudo apt-get upgrade -y 
+          sudo apt-get update 
 
     - name: Install .NET SDK 9.0
       run: |
@@ -35,7 +34,7 @@ jobs:
     - name: Update Workloads
       run: | 
         sudo dotnet workload update && \
-        sudo dotnet workload install maui && \
+        sudo dotnet workload install maui-tizen  && \
         sudo dotnet workload install android && \
         sudo dotnet workload install ios && \
         sudo dotnet workload install aspire  
