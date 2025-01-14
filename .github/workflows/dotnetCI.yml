@@ -24,7 +24,11 @@ jobs:
     - name: Update DotnetWorkloads
       run: | 
         dotnet workload update \
-        dotnet workload install maui-tizen
+        dotnet workload install maui \
+        dotnet workload install android \
+        dotnet workload install ios \
+        dotnet workload install aspire \
+
     
     - name: Restore dependencies
       run: dotnet restore # Restores the dependencies
