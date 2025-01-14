@@ -14,18 +14,19 @@ jobs:
 
     runs-on: ubuntu-latest # Specifies the runner environment
 
-    steps:        
+    steps:    
+    - name: Install .NET SDK
+      run: |
+          sudo apt-get update && \
+          sudo apt-get upgrade -y && \
+          sudo add-apt-repository ppa:dotnet/backports && \
+          sudo apt-get install -y dotnet-sdk-9.0
+
     - uses: actions/checkout@v4 # Checks out the repository
     - name: Setup .NET
       uses: actions/setup-dotnet@v4 # Sets up the specified .NET version
       with:
         dotnet-version: 9.0.x # Specifies the .NET version to use
-    
-    - name: Install .NET SDK
-      run: |
-          sudo apt-get update && \
-          sudo apt-get upgrade -y && \
-          sudo apt-get install -y dotnet-sdk-9.0
 
     - name: Update Workloads
       run: | 
