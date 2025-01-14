@@ -35,8 +35,6 @@ jobs:
       run: | 
         sudo dotnet workload update && \
         sudo dotnet workload install wasm-tools  && \
-        sudo dotnet workload install android && \
-        sudo dotnet workload install ios && \
         sudo dotnet workload install aspire  
       
     - name: Restore dependencies
