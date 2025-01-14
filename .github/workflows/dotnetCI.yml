@@ -25,17 +25,17 @@ jobs:
         sudo apt-get update && \
         sudo apt-get install -y dotnet-sdk-9.0
 
-    - uses: actions/checkout@v4 # Checks out the repository
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4 # Sets up the specified .NET version
-      with:
-        dotnet-version: 9.0.x # Specifies the .NET version to use
-
     - name: Update Workloads
       run: | 
         sudo dotnet workload update && \
         sudo dotnet workload install wasm-tools  && \
         sudo dotnet workload install aspire  
+
+    - uses: actions/checkout@v4 # Checks out the repository
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4 # Sets up the specified .NET version
+      with:
+        dotnet-version: 9.0.x # Specifies the .NET version to use    
       
     - name: Restore dependencies
       run: dotnet restore eShop.Web.slnf # Restores the dependencies
