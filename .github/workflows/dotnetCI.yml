@@ -21,16 +21,20 @@ jobs:
       with:
         dotnet-version: 9.0.x # Specifies the .NET version to use
     
-    - name: Update DotnetWorkloads
+    - name: Install .NET SDK
       run: |
-        sudo apt-get update && \
-        sudo apt-get upgrade -y && \
+          sudo apt-get update && \
+          sudo apt-get upgrade -y && \
+          sudo apt-get install -y dotnet-sdk-9.0
+
+    - name: Update Workloads
+      run: | 
         sudo dotnet workload update && \
         sudo dotnet workload install maui && \
         sudo dotnet workload install android && \
         sudo dotnet workload install ios && \
         sudo dotnet workload install aspire  
-    
+      
     - name: Restore dependencies
       run: dotnet restore # Restores the dependencies
     
