@@ -40,7 +40,7 @@ jobs:
         sudo dotnet workload install aspire  
       
     - name: Restore dependencies
-      run: dotnet restore # Restores the dependencies
+      run: dotnet restore eShop.Web.slnf # Restores the dependencies
     
     - name: Build
-      run: dotnet build --no-restore # Builds the project without restoring dependencies
+      run: dotnet build eShop.Web.slnf --no-restore # Builds the project without restoring dependencies
