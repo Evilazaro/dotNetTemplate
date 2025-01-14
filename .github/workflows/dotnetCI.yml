@@ -22,13 +22,14 @@ jobs:
         dotnet-version: 9.0.x # Specifies the .NET version to use
     
     - name: Update DotnetWorkloads
-      run: | 
-        dotnet workload update \
-        dotnet workload install maui \
-        dotnet workload install android \
-        dotnet workload install ios \
-        dotnet workload install aspire \
-
+      run: |
+        sudo apt-get update && \
+        sudo apt-get upgrade -y && \
+        sudo dotnet workload update && \
+        sudo dotnet workload install maui && \
+        sudo dotnet workload install android && \
+        sudo dotnet workload install ios && \
+        sudo dotnet workload install aspire  
     
     - name: Restore dependencies
       run: dotnet restore # Restores the dependencies
