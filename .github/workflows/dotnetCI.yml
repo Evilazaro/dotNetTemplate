@@ -18,9 +18,7 @@ jobs:
     - name: Install .NET SDK
       run: |
           sudo apt-get update && \
-          sudo apt-get upgrade -y && \
-          sudo add-apt-repository ppa:dotnet/backports && \
-          sudo apt-get install -y dotnet-sdk-9.0
+          sudo apt-get upgrade -y 
 
     - uses: actions/checkout@v4 # Checks out the repository
     - name: Setup .NET
