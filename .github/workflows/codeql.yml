@@ -20,9 +20,6 @@ on:
     - cron: '16 12 * * 3'
 
 jobs:
-  updateDotNet:
-    
-  
   analyze:
     name: Analyze (${{ matrix.language }})
     # Runner size impacts CodeQL analysis time. To learn more, please see:
