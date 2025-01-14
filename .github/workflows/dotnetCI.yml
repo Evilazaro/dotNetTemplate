@@ -15,6 +15,11 @@ jobs:
     runs-on: ubuntu-latest # Specifies the runner environment
 
     steps:
+    - name: Update Action Packages
+      run: |
+        sudo apt-get update && \
+        sudo apt-get upgrade -y # Updates the action packages
+        
     - uses: actions/checkout@v4 # Checks out the repository
     - name: Setup .NET
       uses: actions/setup-dotnet@v4 # Sets up the specified .NET version
