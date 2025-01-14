@@ -22,7 +22,9 @@ jobs:
         dotnet-version: 9.0.x # Specifies the .NET version to use
     
     - name: Update DotnetWorkloads
-      run: dotnet workload update
+      run: | 
+        dotnet workload update \
+        dotnet workload install maui-tizen
     
     - name: Restore dependencies
       run: dotnet restore # Restores the dependencies
